@@ -103,6 +103,14 @@ let colors_input = document.querySelector(".colors_input");
 let keyboard_lights = document.querySelector(".keyboard_lights");
 let keyboard_wrapp = document.querySelector(".keyboard_wrapp");
 
+// AutoFocus for text_input 
+function FocusOnInput() {
+    text_input.focus();
+    setTimeout(function () { text_input.focus(); }, 1);
+}
+
+FocusOnInput();
+
 for(let i = 0; i < keys.length; i++) {
     keys[i].setAttribute("keyname", keys[i].innerText);
     keys[i].setAttribute("lowerCaseName", keys[i].innerText.toLowerCase());
@@ -163,6 +171,7 @@ night_mode.addEventListener("click",function() {
     for(let i = 0; i < keys.length; i++) {
         keys[i].classList.toggle("keys_night");
     }
+    FocusOnInput();
 });
 
 colors_input.addEventListener("input",function() {
