@@ -114,7 +114,7 @@ FocusOnInput();
 
 for(let i = 0; i < keys.length; i++) {
     keys[i].setAttribute("keyname", keys[i].innerText);
-    keys[i].setAttribute("lowerCaseName", keys[i].innerText.toLowerCase());
+    keys[i].setAttribute("lowerCaseName", keys[i].innerText.toUpperCase());
 }
 let count = 0;
 window.addEventListener("keydown", function(e) {
