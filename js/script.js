@@ -30,44 +30,44 @@ body1.innerHTML = `<div class="container">
                         </div>
                         <div class="row">
                             <div class="keys tab_key">Tab</div>
-                            <div class="keys">q</div>
-                            <div class="keys">w</div>
-                            <div class="keys">e</div>
-                            <div class="keys">r</div>
-                            <div class="keys">t</div>
-                            <div class="keys">y</div>
-                            <div class="keys">u</div>
-                            <div class="keys">i</div>
-                            <div class="keys">o</div>
-                            <div class="keys">p</div>
+                            <div class="keys" id="key">q</div>
+                            <div class="keys" id="key">w</div>
+                            <div class="keys" id="key">e</div>
+                            <div class="keys" id="key">r</div>
+                            <div class="keys" id="key">t</div>
+                            <div class="keys" id="key">y</div>
+                            <div class="keys" id="key">u</div>
+                            <div class="keys" id="key">i</div>
+                            <div class="keys" id="key">o</div>
+                            <div class="keys" id="key">p</div>
                             <div class="keys">{</div>
                             <div class="keys">}</div>
                             <div class="keys slash_key">\</div>
                         </div>
                         <div class="row">
                             <div class="keys caps_lock_key">Caps Lock</div>
-                            <div class="keys">a</div>
-                            <div class="keys">s</div>
-                            <div class="keys">d</div>
-                            <div class="keys">f</div>
-                            <div class="keys">g</div>
-                            <div class="keys">h</div>
-                            <div class="keys">j</div>
-                            <div class="keys">k</div>
-                            <div class="keys">l</div>
+                            <div class="keys" id="key">a</div>
+                            <div class="keys" id="key">s</div>
+                            <div class="keys" id="key">d</div>
+                            <div class="keys" id="key">f</div>
+                            <div class="keys" id="key">g</div>
+                            <div class="keys" id="key">h</div>
+                            <div class="keys" id="key">j</div>
+                            <div class="keys" id="key">k</div>
+                            <div class="keys" id="key">l</div>
                             <div class="keys">;</div>
                             <div class="keys">"</div>
                             <div class="keys enter_key">Enter</div>
                         </div>
                         <div class="row">
                             <div class="keys shift_key shift_left">Shift</div>
-                            <div class="keys">z</div>
-                            <div class="keys">x</div>
-                            <div class="keys">c</div>
-                            <div class="keys">v</div>
-                            <div class="keys">b</div>
-                            <div class="keys">n</div>
-                            <div class="keys">m</div>
+                            <div class="keys" id="key">z</div>
+                            <div class="keys" id="key">x</div>
+                            <div class="keys" id="key">c</div>
+                            <div class="keys" id="key">v</div>
+                            <div class="keys" id="key">b</div>
+                            <div class="keys" id="key">n</div>
+                            <div class="keys" id="key">m</div>
                             <div class="keys"><</div>
                             <div class="keys">></div>
                             <div class="keys">/</div>
@@ -102,6 +102,7 @@ let change_color = document.querySelector(".change_light_color");
 let colors_input = document.querySelector(".colors_input");
 let keyboard_lights = document.querySelector(".keyboard_lights");
 let keyboard_wrapp = document.querySelector(".keyboard_wrapp");
+let letters = document.querySelectorAll("#key");
 
 // AutoFocus for text_input 
 function FocusOnInput() {
@@ -115,7 +116,7 @@ for(let i = 0; i < keys.length; i++) {
     keys[i].setAttribute("keyname", keys[i].innerText);
     keys[i].setAttribute("lowerCaseName", keys[i].innerText.toLowerCase());
 }
-
+let count = 0;
 window.addEventListener("keydown", function(e) {
     for(let i = 0; i < keys.length; i++) {
         if(e.key == keys[i].getAttribute("keyname" ) || e.key == keys[i].getAttribute("lowerCaseName")) {
@@ -132,6 +133,17 @@ window.addEventListener("keydown", function(e) {
         }
         if(e.code == "CapsLock") {
             caps_lock_key.classList.toggle("active");
+            if (count == 0) {
+                letters.forEach((e) => {
+                    e.style.cssText = "text-transform: uppercase;";
+                });
+                count = 1;
+            } else {
+                letters.forEach((e) => {
+                    e.style.cssText = "text-transform: lowercase;";
+                });
+                count = 0;
+            }
         }
     }
 });
