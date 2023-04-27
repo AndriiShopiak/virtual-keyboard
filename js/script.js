@@ -76,7 +76,9 @@ body1.innerHTML = `<div class="container">
                         </div>
                         <div class="row">
                             <div class="keys ctrl_key ctrl_left">Ctrl</div>
-                            <div class="keys win_key">Win</div>
+                            <div class="keys win_key">
+                              <?xml version="1.0" ?><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><title/><g data-name="Windows 10" id="Windows_10"><path d="M8,11.35,17.81,10v9.49H8M19,9.82l13-1.9V19.41H19M8,20.49h9.81V30L8,28.63m11-8H32V32L19,30.16"/></g></svg>
+                            </div>
                             <div class="keys alt_key alt_left">Alt</div>
                             <div class="keys space_key"></div>
                             <div class="keys alt_key alt_right">Alt</div>
@@ -105,6 +107,7 @@ let keyboard_wrapp = document.querySelector(".keyboard_wrapp");
 let letters = document.querySelectorAll("#key");
 let controlLeft = document.querySelector(".ctrl_left");
 let winKey = document.querySelector(".win_key");
+let winSvgIcon = document.querySelector("svg");
 
 // AutoFocus for text_input 
 function FocusOnInput() {
@@ -120,7 +123,6 @@ for(let i = 0; i < keys.length; i++) {
 }
 let count = 0;
 window.addEventListener("keydown", function(e) {
-    console.log(e);
     for(let i = 0; i < keys.length; i++) {
         if(e.key == keys[i].getAttribute("keyname" ) || e.key == keys[i].getAttribute("lowerCaseName")) {
             keys[i].classList.add("active");
@@ -195,6 +197,8 @@ night_mode.addEventListener("click",function() {
     keyboard_wrapp.classList.toggle("active");
     text_input.classList.toggle("active");
     change_color.classList.toggle("active");
+    winSvgIcon.classList.toggle("active");
+    console.log(winSvgIcon);
     for(let i = 0; i < keys.length; i++) {
         keys[i].classList.toggle("keys_night");
     }

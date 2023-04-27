@@ -19,6 +19,12 @@ body {
     flex-direction: column;
     margin: 0 10px;
 }
+svg {
+    width: 24px;
+}
+.active {
+    fill: white;
+} 
 
 .keyboard_wrapp {
     max-width: 1008px;
@@ -164,6 +170,9 @@ body.active {
 .keys.keys_night.active {
     background-color: #fff;
     color: #333;
+}
+.keys.keys_night.active > svg {
+    fill: white;
 }
 
 .keys.keys_night.remove {
