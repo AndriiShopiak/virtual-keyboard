@@ -42,7 +42,7 @@ body1.innerHTML = `<div class="container">
                             <div class="keys" id="key">p</div>
                             <div class="keys">{</div>
                             <div class="keys">}</div>
-                            <div class="keys slash_key">\</div>
+                            <div class="keys slash_key">&#92;</div>
                         </div>
                         <div class="row">
                             <div class="keys caps_lock_key">Caps Lock</div>
