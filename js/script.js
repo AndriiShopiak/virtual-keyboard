@@ -103,6 +103,8 @@ let colors_input = document.querySelector(".colors_input");
 let keyboard_lights = document.querySelector(".keyboard_lights");
 let keyboard_wrapp = document.querySelector(".keyboard_wrapp");
 let letters = document.querySelectorAll("#key");
+let controlLeft = document.querySelector(".ctrl_left");
+let winKey = document.querySelector(".win_key");
 
 // AutoFocus for text_input 
 function FocusOnInput() {
@@ -125,6 +127,12 @@ window.addEventListener("keydown", function(e) {
         }
         if(e.code == "Space") {
             spaceKey.classList.add("active");
+        }
+        if(e.code == "ControlLeft") {
+            controlLeft.classList.add("active");
+        }
+        if(e.code == "MetaLeft") {
+            winKey.classList.add("active");
         }
         if(e.code == "ShiftLeft") {
             shift_right.classList.remove("active");
@@ -162,6 +170,12 @@ window.addEventListener("keyup", function(e) {
         if(e.code == "ShiftLeft") {
             shift_right.classList.remove("active");
             shift_right.classList.remove("remove");
+        }
+        if(e.code == "ControlLeft") {
+            controlLeft.classList.remove("active");
+        }
+        if(e.code == "MetaLeft") {
+            winKey.classList.remove("active");
         }
         if(e.code == "ShiftRight") {
             shift_left.classList.remove("active");
