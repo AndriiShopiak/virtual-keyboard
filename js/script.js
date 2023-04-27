@@ -68,8 +68,8 @@ body1.innerHTML = `<div class="container">
                             <div class="keys" id="key">b</div>
                             <div class="keys" id="key">n</div>
                             <div class="keys" id="key">m</div>
-                            <div class="keys"><</div>
-                            <div class="keys">></div>
+                            <div class="keys">,</div>
+                            <div class="keys">.</div>
                             <div class="keys">/</div>
                             <div class="keys">?</div>
                             <div class="keys shift_key shift_right">Shift</div>
@@ -118,6 +118,7 @@ for(let i = 0; i < keys.length; i++) {
 }
 let count = 0;
 window.addEventListener("keydown", function(e) {
+    console.log(e);
     for(let i = 0; i < keys.length; i++) {
         if(e.key == keys[i].getAttribute("keyname" ) || e.key == keys[i].getAttribute("lowerCaseName")) {
             keys[i].classList.add("active");
