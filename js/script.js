@@ -1,6 +1,6 @@
 // ADD keyboards markup
 let body1 = document.querySelector("body");
-body1.innerHTML = `<div class="container">
+let markup = body1.innerHTML = `<div class="container">
                 <div class="night_mode">
                     <div class="toggle_circle"></div>
                 </div>
@@ -13,7 +13,7 @@ body1.innerHTML = `<div class="container">
                     <div class="keyboard_lights"></div>
                     <div class="keyboard_keys">
                         <div class="row">
-                            <div class="keys">~</div>
+                            <div class="keys russ">~</div>
                             <div class="keys">1</div>
                             <div class="keys">2</div>
                             <div class="keys">3</div>
@@ -30,46 +30,46 @@ body1.innerHTML = `<div class="container">
                         </div>
                         <div class="row">
                             <div class="keys tab_key">Tab</div>
-                            <div class="keys" id="key">q</div>
-                            <div class="keys" id="key">w</div>
-                            <div class="keys" id="key">e</div>
-                            <div class="keys" id="key">r</div>
-                            <div class="keys" id="key">t</div>
-                            <div class="keys" id="key">y</div>
-                            <div class="keys" id="key">u</div>
-                            <div class="keys" id="key">i</div>
-                            <div class="keys" id="key">o</div>
-                            <div class="keys" id="key">p</div>
-                            <div class="keys">{</div>
-                            <div class="keys">}</div>
+                            <div class="keys russ" id="key">q</div>
+                            <div class="keys russ" id="key">w</div>
+                            <div class="keys russ" id="key">e</div>
+                            <div class="keys russ" id="key">r</div>
+                            <div class="keys russ" id="key">t</div>
+                            <div class="keys russ" id="key">y</div>
+                            <div class="keys russ" id="key">u</div>
+                            <div class="keys russ" id="key">i</div>
+                            <div class="keys russ" id="key">o</div>
+                            <div class="keys russ" id="key">p</div>
+                            <div class="keys russ">{</div>
+                            <div class="keys russ">}</div>
                             <div class="keys slash_key">&#92;</div>
                         </div>
                         <div class="row">
                             <div class="keys caps_lock_key">Caps Lock</div>
-                            <div class="keys" id="key">a</div>
-                            <div class="keys" id="key">s</div>
-                            <div class="keys" id="key">d</div>
-                            <div class="keys" id="key">f</div>
-                            <div class="keys" id="key">g</div>
-                            <div class="keys" id="key">h</div>
-                            <div class="keys" id="key">j</div>
-                            <div class="keys" id="key">k</div>
-                            <div class="keys" id="key">l</div>
-                            <div class="keys">;</div>
-                            <div class="keys">"</div>
+                            <div class="keys russ" id="key">a</div>
+                            <div class="keys russ" id="key">s</div>
+                            <div class="keys russ" id="key">d</div>
+                            <div class="keys russ" id="key">f</div>
+                            <div class="keys russ" id="key">g</div>
+                            <div class="keys russ" id="key">h</div>
+                            <div class="keys russ" id="key">j</div>
+                            <div class="keys russ" id="key">k</div>
+                            <div class="keys russ" id="key">l</div>
+                            <div class="keys russ">;</div>
+                            <div class="keys russ">"</div>
                             <div class="keys enter_key">Enter</div>
                         </div>
                         <div class="row">
                             <div class="keys shift_key shift_left">Shift</div>
-                            <div class="keys" id="key">z</div>
-                            <div class="keys" id="key">x</div>
-                            <div class="keys" id="key">c</div>
-                            <div class="keys" id="key">v</div>
-                            <div class="keys" id="key">b</div>
-                            <div class="keys" id="key">n</div>
-                            <div class="keys" id="key">m</div>
-                            <div class="keys">,</div>
-                            <div class="keys">.</div>
+                            <div class="keys russ" id="key">z</div>
+                            <div class="keys russ" id="key">x</div>
+                            <div class="keys russ" id="key">c</div>
+                            <div class="keys russ" id="key">v</div>
+                            <div class="keys russ" id="key">b</div>
+                            <div class="keys russ" id="key">n</div>
+                            <div class="keys russ" id="key">m</div>
+                            <div class="keys russ">,</div>
+                            <div class="keys russ">.</div>
                             <div class="keys">/</div>
                             <div class="keys">?</div>
                             <div class="keys shift_key shift_right">Shift</div>
@@ -116,15 +116,20 @@ function FocusOnInput() {
 }
 
 FocusOnInput();
+// Add russian alphabet
+let russAbr = document.querySelectorAll(".russ");
+let russABC = ["ё","й","ц","у","к","е","н","г","ш","щ","з","х","ъ","ф","ы","в","а","п","р","о","л","д","ж","э","я","ч","с","м","и","т","ь","б","ю"];
+
 
 for(let i = 0; i < keys.length; i++) {
     keys[i].setAttribute("keyname", keys[i].innerText);
     keys[i].setAttribute("lowerCaseName", keys[i].innerText.toUpperCase());
 }
 let count = 0;
+let countLang = 0;
 window.addEventListener("keydown", function(e) {
     for(let i = 0; i < keys.length; i++) {
-        if(e.key == keys[i].getAttribute("keyname" ) || e.key == keys[i].getAttribute("lowerCaseName")) {
+        if(e.key == keys[i].getAttribute("keyname") || e.key == keys[i].getAttribute("lowerCaseName")) {
             keys[i].classList.add("active");
         }
         if(e.code == "Space") {
@@ -132,6 +137,12 @@ window.addEventListener("keydown", function(e) {
         }
         if(e.code == "ControlLeft") {
             controlLeft.classList.add("active");
+            if (countLang == 0) {
+                russAbr.forEach( (a, index) => {
+                    a.innerText = russABC[index];
+                });
+                countLang = 1;
+            }
         }
         if(e.code == "MetaLeft") {
             winKey.classList.add("active");
@@ -173,6 +184,7 @@ window.addEventListener("keyup", function(e) {
             shift_right.classList.remove("active");
             shift_right.classList.remove("remove");
         }
+        
         if(e.code == "ControlLeft") {
             controlLeft.classList.remove("active");
         }
@@ -189,7 +201,6 @@ window.addEventListener("keyup", function(e) {
     }
 });
 
-
 night_mode.addEventListener("click",function() {
     toggle_circle.classList.toggle("active");
     body.classList.toggle("active");
@@ -198,7 +209,6 @@ night_mode.addEventListener("click",function() {
     text_input.classList.toggle("active");
     change_color.classList.toggle("active");
     winSvgIcon.classList.toggle("active");
-    console.log(winSvgIcon);
     for(let i = 0; i < keys.length; i++) {
         keys[i].classList.toggle("keys_night");
     }
