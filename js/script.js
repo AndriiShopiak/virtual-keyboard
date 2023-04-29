@@ -157,6 +157,9 @@ window.addEventListener("keydown", function(e) {
         }
         if(e.code == "ShiftLeft") {
             shift_right.classList.remove("active");
+            letters.forEach((e) => {
+                    e.style.cssText = "text-transform: uppercase;";
+                });
         }
         if(e.code == "ShiftRight") {
             shift_left.classList.remove("active");
@@ -191,6 +194,9 @@ window.addEventListener("keyup", function(e) {
         if(e.code == "ShiftLeft") {
             shift_right.classList.remove("active");
             shift_right.classList.remove("remove");
+            letters.forEach((e) => {
+                    e.style.cssText = "text-transform: lowercase;";
+                });
         }
         
         if(e.code == "ControlLeft") {
