@@ -119,7 +119,8 @@ FocusOnInput();
 // Add russian alphabet
 let russAbr = document.querySelectorAll(".russ");
 let russABC = ["ё","й","ц","у","к","е","н","г","ш","щ","з","х","ъ","ф","ы","в","а","п","р","о","л","д","ж","э","я","ч","с","м","и","т","ь","б","ю"];
-
+let engABC = ["~","q","w","e","r","t","y","u","i","o","p","{","}","a","s","d","f","g","h","j","k","l",";",`"`,"z","x","c","v","b","n","m",",","."];
+// console.log(russAbr[2].innerHTML);
 
 for(let i = 0; i < keys.length; i++) {
     keys[i].setAttribute("keyname", keys[i].innerText);
@@ -142,6 +143,13 @@ window.addEventListener("keydown", function(e) {
                     a.innerText = russABC[index];
                 });
                 countLang = 1;
+                break;
+            } else {
+                russAbr.forEach( (a, index) => {
+                    a.innerText = engABC[index];
+                });
+                countLang = 0;
+                break;
             }
         }
         if(e.code == "MetaLeft") {
