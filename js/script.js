@@ -180,7 +180,7 @@ window.addEventListener("keydown", function(e) {
         }
     }
 });
-
+// light for ruusian keyboard
 text_input.addEventListener("input", function () {
     russAbr.forEach((e) => {
         if (e.innerHTML == text_input.value[text_input.value.length -1]) {
@@ -246,4 +246,11 @@ colors_input.addEventListener("input",function() {
         keys[i].style.color = colors_input.value;
     }
     keyboard_lights.style.background = colors_input.value;
-}); 
+});
+// typing when click
+keys.forEach ((e) => {
+    e.addEventListener("click", function() {
+        text_input.value += e.innerHTML;
+        console.log(e.innerHTML);
+    });
+});
