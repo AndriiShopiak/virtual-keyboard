@@ -120,7 +120,7 @@ FocusOnInput();
 let russAbr = document.querySelectorAll(".russ");
 let russABC = ["ё","й","ц","у","к","е","н","г","ш","щ","з","х","ъ","ф","ы","в","а","п","р","о","л","д","ж","э","я","ч","с","м","и","т","ь","б","ю"];
 let engABC = ["~","q","w","e","r","t","y","u","i","o","p","{","}","a","s","d","f","g","h","j","k","l",";",`"`,"z","x","c","v","b","n","m",",","."];
-// console.log(russAbr[2].innerHTML);
+
 
 for(let i = 0; i < keys.length; i++) {
     keys[i].setAttribute("keyname", keys[i].innerText);
@@ -181,6 +181,15 @@ window.addEventListener("keydown", function(e) {
     }
 });
 
+text_input.addEventListener("input", function () {
+    russAbr.forEach((e) => {
+        if (e.innerHTML == text_input.value[text_input.value.length -1]) {
+            e.classList.add("active");
+        }
+    });
+    console.log(text_input.value[text_input.value.length -1]);
+});
+
 window.addEventListener("keyup", function(e) {
     for(let i = 0; i < keys.length; i++) {
         if(e.key == keys[i].getAttribute("keyname" ) || e.key == keys[i].getAttribute("lowerCaseName")) {
@@ -213,6 +222,9 @@ window.addEventListener("keyup", function(e) {
             keys[i].classList.remove("remove");
         },200);
     }
+    russAbr.forEach((e) => {
+        e.classList.remove("active");
+    });
 });
 
 night_mode.addEventListener("click",function() {
