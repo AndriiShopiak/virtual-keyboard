@@ -272,11 +272,13 @@ keys.forEach ((e) => {
             } 
         }
         if (e.innerHTML == "Shift") {
+            shift_left.classList.add("active");
             letters.forEach((e) => {
                 e.style.cssText = "text-transform: uppercase;";
             });
             setTimeout(() =>  letters.forEach((e) => {
                 e.style.cssText = "text-transform: lowercase;";
+                shift_left.classList.remove("active");
             }), 500);
         }
     });
