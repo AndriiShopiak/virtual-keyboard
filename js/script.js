@@ -181,9 +181,9 @@ window.addEventListener("keydown", function(e) {
     }
 });
 // light for ruusian keyboard
-text_input.addEventListener("input", function () {
+text_input.addEventListener("input", function (el) {
     russAbr.forEach((e) => {
-        if (e.innerHTML == text_input.value[text_input.value.length -1]) {
+        if (e.innerHTML == text_input.value[text_input.value.length -1] && el.inputType !== "deleteContentBackward") {
             e.classList.add("active");
         }
     });
