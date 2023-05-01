@@ -281,5 +281,21 @@ keys.forEach ((e) => {
                 shift_left.classList.remove("active");
             }), 500);
         }
+        if (e.innerHTML == "Ctrl") {
+            controlLeft.classList.toggle("active");
+            if (countLang == 0) {
+                russAbr.forEach( (a, index) => {
+                    a.innerText = russABC[index];
+                });
+                countLang = 1;
+                
+            } else {
+                russAbr.forEach( (a, index) => {
+                    a.innerText = engABC[index];
+                });
+                countLang = 0;
+                
+            }
+        }
     });
 });
