@@ -1,6 +1,6 @@
 // ADD keyboards markup
 let body1 = document.querySelector("body");
-let markup = body1.innerHTML = `<div class="container">
+ body1.innerHTML = `<div class="container">
                 <div class="night_mode">
                     <div class="toggle_circle"></div>
                 </div>
@@ -9,6 +9,7 @@ let markup = body1.innerHTML = `<div class="container">
                         <input class="colors_input" type="color" >
                     </div>
                 </div>
+                <h1>Windows Virtual Keyboard</h1>
                 <div class="keyboard_wrapp">
                     <div class="keyboard_lights"></div>
                     <div class="keyboard_keys">
