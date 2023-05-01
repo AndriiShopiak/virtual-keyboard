@@ -248,9 +248,36 @@ colors_input.addEventListener("input",function() {
     keyboard_lights.style.background = colors_input.value;
 });
 // typing when click
+                          
 keys.forEach ((e) => {
     e.addEventListener("click", function() {
-        text_input.value += e.innerHTML;
-        console.log(e.innerHTML);
+        if (e.innerHTML !== "Backspace" && e.innerHTML !== "Shift" && e.innerHTML !== "Caps Lock" && e.innerHTML !== "Ctrl" && e.innerHTML !== "Tab" && e.innerHTML !== "Alt" && e.innerHTML !== "Fn" && e.innerHTML !== "Enter" && e.classList[1] !== "win_key" ) {
+          text_input.value += e.innerHTML;
+        }
+        if (e.innerHTML == "Tab") {
+            text_input.value += "    "; 
+        }
+        if (e.innerHTML == "Caps Lock") {
+            caps_lock_key.classList.toggle("active");
+            if (count == 0) {
+                letters.forEach((e) => {
+                    e.style.cssText = "text-transform: uppercase;";
+                });
+                count = 1;
+            } else {
+                letters.forEach((e) => {
+                    e.style.cssText = "text-transform: lowercase;";
+                });
+                count = 0;
+            } 
+        }
+        if (e.innerHTML == "Shift") {
+            letters.forEach((e) => {
+                e.style.cssText = "text-transform: uppercase;";
+            });
+            setTimeout(() =>  letters.forEach((e) => {
+                e.style.cssText = "text-transform: lowercase;";
+            }), 500);
+        }
     });
 });
