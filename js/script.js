@@ -187,7 +187,6 @@ text_input.addEventListener("input", function (el) {
             e.classList.add("active");
         }
     });
-    console.log(text_input.value[text_input.value.length -1]);
 });
 
 window.addEventListener("keyup", function(e) {
@@ -296,6 +295,25 @@ keys.forEach ((e) => {
                 countLang = 0;
                 
             }
+        }
+        if (e.classList[1] == "win_key") {
+            winKey.classList.add("active");
+            setTimeout(() => {
+                winKey.classList.remove("active");
+            }, 200);
+        }
+        if (e.innerHTML == "Alt") {
+            e.classList.add("active");
+            setTimeout(() => {
+                e.classList.remove("active");
+            }, 200);
+        }
+        if (e.innerHTML == "") {
+            e.classList.add("active");
+            setTimeout(() => {
+                e.classList.remove("active");
+            }, 200);
+            text_input.value += " ";
         }
     });
 });
