@@ -328,8 +328,12 @@ keys.forEach ((e) => {
             }, 200);
         }
         if (e.innerHTML == "Backspace") {
-            text_input.value[text_input.length -1] = "";
-            // todo
+            e.classList.add("active");
+            setTimeout(() => {
+                e.classList.remove("active");
+            }, 200);
+            text_input.value = text_input.value.replace(text_input.value[text_input.value.length -1], "");
+            
         }
     });
 });
