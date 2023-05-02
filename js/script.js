@@ -89,6 +89,7 @@ let body1 = document.querySelector("body");
                     </div>
                 </div>
                 <input class="text" type="text">
+                <h2>Press Ctrl to swich language</h2>
                 </div>`;
 
 //Add functions for keyboard
